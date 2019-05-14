@@ -31,6 +31,7 @@ class EightBall extends Component {
     super(props);
     this.state = { msg: "Think of a question...", color: "black" };
     this.handleClick = this.handleClick.bind(this);
+    this.resetBall = this.resetBall.bind(this);
   }
 
   getRandom() {
@@ -38,14 +39,26 @@ class EightBall extends Component {
     return this.props.answers[idx];
   }
 
+  
   handleClick() {
+    this.setState({ msg:'Thinking....'});
     const { msg, color } = this.getRandom();
-    this.setState({ msg, color });
+    
+    setTimeout(() => {
+      this.setState({ msg, color });
+    }, 1000);
+  }
+
+  resetBall() {
+    this.setState({ msg:'Think of another question', color: "black"});
   }
 
   render() {
     return (
-      <span className="dot" onClick={this.handleClick} style={{backgroundColor: this.state.color}}>{this.state.msg}</span>
+      <div>
+        <span className="dot animated shake" onClick={this.handleClick} style={{backgroundColor: this.state.color}}>{this.state.msg}</span>
+        <button className="btn" type="button" onClick={this.resetBall}>Reset</button>
+      </div>
     )
   }
 }

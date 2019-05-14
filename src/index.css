@@ -12,6 +12,15 @@ code {
     monospace;
 }
 
+.btn {
+  background-color: red;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 15%;
+  font-size: 15pt;
+  outline: none;
+  margin-top: 15px;
+}
 
 .dot {
   height: 400px;
@@ -25,4 +34,5 @@ code {
   text-align: center;
   font-size: 30pt;
   color: white;
+  transition: color 5s ease;
 }
